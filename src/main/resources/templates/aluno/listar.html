@@ -9,7 +9,7 @@
 
 <h1>Alunos</h1>
 
-<table>
+<table border="1">
     <thead>
         <th>Id</th>
         <th>Nome</th>
@@ -17,6 +17,7 @@
         <th>Matrícula</th>
         <th>CPF</th>
         <th>Nascimento</th>
+        <th>Editar</th>
         <th>Excluir</th>
     </thead>
     <tbody>
@@ -27,12 +28,13 @@
          <td th:text="${aluno.numeroMatricula}"></td>
          <td th:text="${aluno.cpf}"></td>
          <td th:text="${aluno.nascimento}"></td>
+         <td><a th:href="@{/aluno/editar/{id}(id=${aluno.id})}">Editar</a></td>
+         <td><a th:href="@{/aluno/excluir/{id}(id=${aluno.id})}">Excluir</a></td>
      </tr>
     </tbody>
-
-    <p th:text="${alunos}">
-
 </table>
+
+<p><a href="/aluno/novo">Novo Aluno</a></p>
 
 </body>
 </html>
