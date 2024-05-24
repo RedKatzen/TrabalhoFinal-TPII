@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
     <title>Criando um Novo Aluno</title>
@@ -8,17 +8,17 @@
 
 <h1>Novo Aluno</h1>
 
-<form action="/aluno/novo" method="post">
+<form action="#" th:action="@{/aluno/novo}" th:object="${aluno}" method="post">
     <label>Nome: </label><br />
-    <input type="text" name="nome" /><br />
+    <input type="text" th:field="*{nome}" /><br />
     <label>Endereço: </label><br />
-    <input type="text" name="endereco" /><br />
+    <input type="text" th:field="*{endereco}" /><br />
     <label>Matrícula: </label><br />
-    <input type="text" name="matricula" /><br />
+    <input type="text" th:field="*{numeroMatricula}" /><br />
     <label>CPF: </label><br />
-    <input type="text" name="cpf" /><br />
+    <input type="text" th:field="*{cpf}" /><br />
     <label>Data de nascimento: </label><br />
-    <input type="text" name="nascimento" /><br /><br />
+    <input type="text" th:field="*{nascimento}" /><br /><br />
     <input type="submit" value="Salvar" />
 </form>
 

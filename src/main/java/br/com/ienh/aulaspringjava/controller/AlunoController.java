@@ -5,10 +5,7 @@ import br.com.ienh.aulaspringjava.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 
@@ -26,18 +23,12 @@ public class AlunoController {
     }
 
     @GetMapping("/novo")
-    public String novoForm() {
+    public String novoForm(@ModelAttribute("aluno") Aluno aluno) {
         return "/aluno/novoForm";
     }
 
     @PostMapping("/novo")
-    public String novoSalvar(String nome, String endereco, String matricula, String cpf, String nascimento) {
-        Aluno aluno = new Aluno();
-        aluno.setNome(nome);
-        aluno.setEndereco(endereco);
-        aluno.setNumeroMatricula(matricula);
-        aluno.setCpf(cpf);
-        aluno.setNascimento(LocalDate.parse(nascimento));
+    public String novoSalvar(Aluno aluno) {
         alunoRepository.save(aluno);
         return "redirect:/aluno/listar";
     }
