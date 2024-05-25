@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Cadastro de Contato</title>
+</head>
+<body>
+    <h1>Novo contato</h1>
+
+    <form action="#" th:action="@{/contato/novo}" th:object="${contato}" method="post">
+        <label>Descrição</label><br />
+        <input type="text" th:field="*{descricao}"><br /><br />
+        <label>Tipo:</label>
+        <select name="tipo" th:field="*{tipo}">
+            <option value="Telefone">Telefone
+            <option value="E-mail">E-mail
+            <option value="Endereço">Endereço
+        </select><br /><br />
+        <label>Aluno:</label>
+        <select th:field="*{idAluno}">
+            <option th:each="aluno: ${alunos}"
+                    th:value="${aluno.id}"
+                    th:text="${aluno.nome}">
+        </select>
+        <br /><br />
+        <input type="submit" value="Salvar">
+    </form>
+</body>
+</html>

@@ -21,7 +21,7 @@ public class TesteController {
 
         System.out.println(alunoRepository.findByCpf("00216772"));
 
-        return "teste";
+        return "index";
     }
 
 }

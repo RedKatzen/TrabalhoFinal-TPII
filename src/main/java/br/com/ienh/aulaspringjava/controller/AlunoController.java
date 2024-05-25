@@ -1,5 +1,6 @@
 package br.com.ienh.aulaspringjava.controller;
 
+import br.com.ienh.aulaspringjava.dto.AlunoDTO;
 import br.com.ienh.aulaspringjava.entities.Aluno;
 import br.com.ienh.aulaspringjava.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,13 +24,13 @@ public class AlunoController {
     }
 
     @GetMapping("/novo")
-    public String novoForm(@ModelAttribute("aluno") Aluno aluno) {
+    public String novoForm(@ModelAttribute("aluno") AlunoDTO aluno) {
         return "/aluno/novoForm";
     }
 
     @PostMapping("/novo")
-    public String novoSalvar(Aluno aluno) {
-        alunoRepository.save(aluno);
+    public String novoSalvar(AlunoDTO aluno) {
+        alunoRepository.save(new Aluno(aluno.nome(), aluno.endereco(), aluno.numeroMatricula(), aluno.cpf(), aluno.nascimento()));
         return "redirect:/aluno/listar";
     }
 
@@ -40,13 +41,13 @@ public class AlunoController {
     }
 
     @PostMapping("/editar")
-    public String editarSalvar(int id, String nome, String endereco, String matricula, String cpf, String nascimento) {
+    public String editarSalvar(int id, String nome, String endereco, String matricula, String cpf, LocalDate nascimento) {
         alunoRepository.findById(id).ifPresent(aluno -> {
             aluno.setNome(nome);
             aluno.setEndereco(endereco);
             aluno.setNumeroMatricula(matricula);
             aluno.setCpf(cpf);
-            aluno.setNascimento(LocalDate.parse(nascimento));
+            aluno.setNascimento(nascimento);
             alunoRepository.save(aluno);
         });
         return "redirect:/aluno/listar";
