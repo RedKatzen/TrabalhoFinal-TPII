@@ -1,7 +1,9 @@
 package br.com.ienh.aulaspringjava.controller;
 
 import br.com.ienh.aulaspringjava.dto.ContatoDTO;
+import br.com.ienh.aulaspringjava.entities.Contato;
 import br.com.ienh.aulaspringjava.repositories.AlunoRepository;
+import br.com.ienh.aulaspringjava.repositories.ContatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +18,8 @@ public class ContatoController {
 
     @Autowired
     AlunoRepository alunoRepository;
+    @Autowired
+    ContatoRepository contatoRepository;
 
     @GetMapping("/novo")
     public String novoForm(@ModelAttribute("contato") ContatoDTO contato, Model model){
@@ -25,7 +29,7 @@ public class ContatoController {
 
     @PostMapping("/novo")
     public String novoSalvar(ContatoDTO contato){
-
+        contatoRepository.save(new Contato(contato.descricao(), contato.tipo(), contato.aluno()));
         return "redirect:/aluno/listar";
     }
 

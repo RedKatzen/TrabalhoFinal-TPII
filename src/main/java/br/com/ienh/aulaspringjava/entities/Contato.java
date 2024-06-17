@@ -20,17 +20,10 @@ public class Contato {
     @JoinColumn(name = "aluno_id")
     private Aluno aluno;
 
-    public Aluno getAluno() {
-        return aluno;
-    }
-
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
-    }
-
-    public Contato(String descricao, String tipo) {
+    public Contato(String descricao, String tipo, Aluno aluno) {
         this.descricao = descricao;
         this.tipo = tipo;
+        this.aluno = aluno;
     }
 
     public Contato() {}
@@ -58,6 +51,12 @@ public class Contato {
     public void setTipo(String tipo) {
         this.tipo = tipo;
     }
+
+    public Aluno getAluno() {
+        return aluno;
+    }
+
+    //public void setAluno(Aluno aluno) {this.aluno = aluno;}
 
     @Override
     public String toString() {

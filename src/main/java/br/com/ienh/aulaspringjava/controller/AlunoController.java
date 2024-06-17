@@ -30,7 +30,7 @@ public class AlunoController {
 
     @PostMapping("/novo")
     public String novoSalvar(AlunoDTO aluno) {
-        alunoRepository.save(new Aluno(aluno.nome(), aluno.endereco(), aluno.numeroMatricula(), aluno.cpf(), aluno.nascimento()));
+        alunoRepository.save(new Aluno(aluno.nome(), aluno.numeroMatricula(), aluno.cpf(), aluno.endereco(), aluno.nascimento()));
         return "redirect:/aluno/listar";
     }
 

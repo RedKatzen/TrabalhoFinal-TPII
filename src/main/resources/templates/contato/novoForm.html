@@ -11,15 +11,15 @@
         <label>Descrição</label><br />
         <input type="text" th:field="*{descricao}"><br /><br />
         <label>Tipo:</label>
-        <select name="tipo" th:field="*{tipo}">
+        <select th:field="*{tipo}">
             <option value="Telefone">Telefone
             <option value="E-mail">E-mail
             <option value="Endereço">Endereço
         </select><br /><br />
         <label>Aluno:</label>
-        <select th:field="*{idAluno}">
+        <select th:field="*{aluno}">
             <option th:each="aluno: ${alunos}"
-                    th:value="${aluno.id}"
+                    th:value="${aluno}"
                     th:text="${aluno.nome}">
         </select>
         <br /><br />
