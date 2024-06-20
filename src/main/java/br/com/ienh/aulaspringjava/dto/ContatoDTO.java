@@ -1,5 +1,13 @@
 package br.com.ienh.aulaspringjava.dto;
 
-import br.com.ienh.aulaspringjava.entities.Aluno;
+import jakarta.validation.constraints.NotNull;
 
-public record ContatoDTO(String descricao, String tipo, Aluno aluno) { }
+public record ContatoDTO(
+        @NotNull
+        String descricao,
+
+        @NotNull
+        String tipo,
+
+        @NotNull
+        Integer idAluno) {}

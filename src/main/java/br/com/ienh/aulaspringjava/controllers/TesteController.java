@@ -1,4 +1,4 @@
-package br.com.ienh.aulaspringjava.controller;
+package br.com.ienh.aulaspringjava.controllers;
 
 
 import br.com.ienh.aulaspringjava.repositories.AlunoRepository;
@@ -21,7 +21,7 @@ public class TesteController {
 
         System.out.println(alunoRepository.findByCpf("00216772"));
 
-        return "index";
+        return "teste";
     }
 
 }
