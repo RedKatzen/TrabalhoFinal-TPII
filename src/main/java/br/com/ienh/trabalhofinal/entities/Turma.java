@@ -1,4 +1,4 @@
-package br.com.ienh.aulaspringjava.entities;
+package br.com.ienh.trabalhofinal.entities;
 
 import jakarta.persistence.*;
 

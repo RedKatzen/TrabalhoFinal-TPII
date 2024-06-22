@@ -1,5 +1,5 @@
 
-package br.com.ienh.aulaspringjava.dto;
+package br.com.ienh.trabalhofinal.dto;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Past;
@@ -14,7 +14,7 @@ public record AlunoDTO(
         String nome,
 
         @NotNull
-        //@Size(max= 11, min=11, message="O CPF deve cumprir o critério.")
+        //@Size(max=11, min=11, message="O CPF deve cumprir o critério.")
         String cpf,
 
         @NotNull

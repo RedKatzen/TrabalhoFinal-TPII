@@ -1,8 +1,8 @@
-package br.com.ienh.aulaspringjava.services;
+package br.com.ienh.trabalhofinal.services;
 
-import br.com.ienh.aulaspringjava.dto.AlunoDTO;
-import br.com.ienh.aulaspringjava.entities.Aluno;
-import br.com.ienh.aulaspringjava.repositories.AlunoRepository;
+import br.com.ienh.trabalhofinal.dto.AlunoDTO;
+import br.com.ienh.trabalhofinal.entities.Aluno;
+import br.com.ienh.trabalhofinal.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

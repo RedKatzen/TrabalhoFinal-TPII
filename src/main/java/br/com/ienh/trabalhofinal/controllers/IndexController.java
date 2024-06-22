@@ -1,4 +1,4 @@
-package br.com.ienh.aulaspringjava.controllers;
+package br.com.ienh.trabalhofinal.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package br.com.ienh.aulaspringjava;
+package br.com.ienh.trabalhofinal;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

@@ -1,7 +1,7 @@
-package br.com.ienh.aulaspringjava.controllers;
+package br.com.ienh.trabalhofinal.controllers;
 
 
-import br.com.ienh.aulaspringjava.repositories.AlunoRepository;
+import br.com.ienh.trabalhofinal.repositories.AlunoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;

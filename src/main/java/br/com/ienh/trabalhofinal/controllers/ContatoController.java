@@ -1,11 +1,11 @@
-package br.com.ienh.aulaspringjava.controllers;
+package br.com.ienh.trabalhofinal.controllers;
 
-import br.com.ienh.aulaspringjava.dto.AlunoDTO;
-import br.com.ienh.aulaspringjava.dto.ContatoDTO;
-import br.com.ienh.aulaspringjava.entities.Aluno;
-import br.com.ienh.aulaspringjava.entities.Contato;
-import br.com.ienh.aulaspringjava.repositories.AlunoRepository;
-import br.com.ienh.aulaspringjava.repositories.ContatoRepository;
+import br.com.ienh.trabalhofinal.dto.AlunoDTO;
+import br.com.ienh.trabalhofinal.dto.ContatoDTO;
+import br.com.ienh.trabalhofinal.entities.Aluno;
+import br.com.ienh.trabalhofinal.entities.Contato;
+import br.com.ienh.trabalhofinal.repositories.AlunoRepository;
+import br.com.ienh.trabalhofinal.repositories.ContatoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;

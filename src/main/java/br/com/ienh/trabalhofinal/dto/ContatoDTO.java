@@ -1,4 +1,4 @@
-package br.com.ienh.aulaspringjava.dto;
+package br.com.ienh.trabalhofinal.dto;
 
 import jakarta.validation.constraints.NotNull;
 

@@ -1,7 +1,7 @@
-package br.com.ienh.aulaspringjava.controllers;
+package br.com.ienh.trabalhofinal.controllers;
 
-import br.com.ienh.aulaspringjava.dto.AlunoDTO;
-import br.com.ienh.aulaspringjava.services.AlunoService;
+import br.com.ienh.trabalhofinal.dto.AlunoDTO;
+import br.com.ienh.trabalhofinal.services.AlunoService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

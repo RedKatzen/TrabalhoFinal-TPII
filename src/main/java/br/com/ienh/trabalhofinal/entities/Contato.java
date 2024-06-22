@@ -1,4 +1,4 @@
-package br.com.ienh.aulaspringjava.entities;
+package br.com.ienh.trabalhofinal.entities;
 
 import jakarta.persistence.*;
 
@@ -15,6 +15,14 @@ public class Contato {
 
     @Column(name="tipo")
     private String tipo;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "aluno_id")
+    private Cliente cliente;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "funcionario_id")
+    private Funcionario funcionario;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aluno_id")
@@ -57,6 +65,22 @@ public class Contato {
 
     public void setTipo(String tipo) {
         this.tipo = tipo;
+    }
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Funcionario getFuncionario() {
+        return funcionario;
+    }
+
+    public void setFuncionario(Funcionario funcionario) {
+        this.funcionario = funcionario;
     }
 
     @Override

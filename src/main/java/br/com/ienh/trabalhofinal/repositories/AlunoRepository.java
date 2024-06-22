@@ -1,6 +1,6 @@
-package br.com.ienh.aulaspringjava.repositories;
+package br.com.ienh.trabalhofinal.repositories;
 
-import br.com.ienh.aulaspringjava.entities.Aluno;
+import br.com.ienh.trabalhofinal.entities.Aluno;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 
