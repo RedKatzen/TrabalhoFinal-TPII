@@ -17,12 +17,12 @@ public class Contato {
     private String tipo;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aluno_id")
-    private Cliente cliente;
-
-    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "funcionario_id")
     private Funcionario funcionario;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "aluno_id")

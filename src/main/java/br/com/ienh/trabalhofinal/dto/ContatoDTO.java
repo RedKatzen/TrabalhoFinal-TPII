@@ -10,4 +10,10 @@ public record ContatoDTO(
         String tipo,
 
         @NotNull
-        Integer idAluno) {}
+        Integer idFuncionario,
+
+        Integer ifCliente,
+
+        @NotNull
+        Integer idAluno
+) {}

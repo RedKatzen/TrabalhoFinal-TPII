@@ -4,11 +4,11 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class AulaSpringJavaApplication {
+public class TrabalhoFinalApplication {
 
     public static void main(String[] args) {
 
-        SpringApplication.run(AulaSpringJavaApplication.class, args);
+        SpringApplication.run(TrabalhoFinalApplication.class, args);
 
     }
 
