@@ -10,10 +10,10 @@ public record FuncionarioDTO(
         String nome,
 
         @NotNull(message = "Informação obrigatória.")
-        String identificador,
+        String cpf,
 
         @NotNull(message = "Informação obrigatória.")
-        String cpf
+        String identificador
 
 ) {
 }

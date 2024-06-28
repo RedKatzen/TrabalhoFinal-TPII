@@ -9,6 +9,6 @@ import java.util.List;
 @Repository
 public interface ContatoRepository extends CrudRepository<Contato, Integer> {
 
-    public List<Contato> findByTipoOrderByDescricaoDesc(String tipo);
+    public Contato findByTipo(String tipo);
 
 }

@@ -17,24 +17,9 @@ public class Contato {
     private String descricao;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "funcionario_id")
-    private Funcionario funcionario;
-
-    @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "aluno_id")
-    private Aluno aluno;
-
-    public Aluno getAluno() {
-        return aluno;
-    }
-
-    public void setAluno(Aluno aluno) {
-        this.aluno = aluno;
-    }
 
     public Contato(String descricao, String tipo) {
         this.descricao = descricao;
@@ -75,13 +60,6 @@ public class Contato {
         this.cliente = cliente;
     }
 
-    public Funcionario getFuncionario() {
-        return funcionario;
-    }
-
-    public void setFuncionario(Funcionario funcionario) {
-        this.funcionario = funcionario;
-    }
 
     @Override
     public String toString() {

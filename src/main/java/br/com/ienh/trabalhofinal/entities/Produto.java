@@ -31,12 +31,6 @@ public class Produto {
     @JoinColumn(name = "marca_id")
     private Marca marca;
 
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="produto_has_compra",
-                joinColumns = @JoinColumn(name = "produto_id"),
-                inverseJoinColumns = @JoinColumn(name = "compra_id"))
-    private List<Compra> compras;
-
     public Produto(String descricao, double preco, int quantidade, int codBarras) {
         this.descricao = descricao;
         this.preco = preco;
@@ -45,6 +39,10 @@ public class Produto {
     }
 
     public Produto() {}
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public int getId() {
         return id;
@@ -96,14 +94,6 @@ public class Produto {
 
     public void setMarca(Marca marca) {
       this.marca = marca;
-    }
-
-    public List<Compra> getCompras(){
-        return compras;
-    }
-
-    public void setCompra(Compra compra) {
-        this.compras.add(compra);
     }
 
     @Override

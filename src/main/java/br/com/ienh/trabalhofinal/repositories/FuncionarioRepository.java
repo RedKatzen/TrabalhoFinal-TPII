@@ -5,6 +5,6 @@ import org.springframework.data.repository.CrudRepository;
 
 public interface FuncionarioRepository extends CrudRepository<Funcionario, Integer>{
 
-    public Funcionario findByCpf(String cpf);
+    public Funcionario findByNome(String nome);
 
 }

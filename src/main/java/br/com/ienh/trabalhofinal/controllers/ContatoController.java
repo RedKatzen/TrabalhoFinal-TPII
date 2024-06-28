@@ -1,11 +1,8 @@
 package br.com.ienh.trabalhofinal.controllers;
 
-import br.com.ienh.trabalhofinal.dto.AlunoDTO;
 import br.com.ienh.trabalhofinal.dto.ContatoDTO;
-import br.com.ienh.trabalhofinal.entities.Aluno;
-import br.com.ienh.trabalhofinal.entities.Contato;
-import br.com.ienh.trabalhofinal.repositories.AlunoRepository;
-import br.com.ienh.trabalhofinal.repositories.ContatoRepository;
+import org.springframework.validation.BindingResult;
+import br.com.ienh.trabalhofinal.services.ContatoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,27 +19,43 @@ import java.util.List;
 public class ContatoController {
 
     @Autowired
-    AlunoRepository alunoRepository;
-    @Autowired
-    ContatoRepository contatoRepository;
+    ContatoService contatoService;
+
+    @GetMapping("/listar")
+    public String listar(Model model){
+        model.addAttribute("contatos", contatoService.listar());
+        return "/contato/listar";
+    }
 
     @GetMapping("/novo")
-    public String novoForm(@ModelAttribute("contato") ContatoDTO contato, Model model){
-        Iterable<Aluno> alunos = alunoRepository.findAll();
-        List<AlunoDTO> alunosDTO = new ArrayList<>();
-        alunos.forEach(aluno -> alunosDTO.add(new AlunoDTO(aluno.getId(), aluno.getNome(), aluno.getCpf(), aluno.getNumeroMatricula(), aluno.getEndereco(),  aluno.getNascimento())));
-        model.addAttribute("alunos", alunosDTO);
+    public String novoForm(@ModelAttribute("contato") ContatoDTO contato){
         return "/contato/novoForm";
     }
 
     @PostMapping("/novo")
-    public String novoSalvar(ContatoDTO contato){
-        Contato novoContato = new Contato();
-        novoContato.setDescricao(contato.descricao());
-        novoContato.setTipo(contato.tipo());
-        alunoRepository.findById(contato.idAluno()).ifPresent(novoContato::setAluno);
-        contatoRepository.save(novoContato);
-        return "redirect:/aluno/listar";
+    public String novoSalvar(@ModelAttribute("contato") ContatoDTO contato, BindingResult bindingResult){
+        if(bindingResult.hasErrors()) return "/contato/novoForm";
+        contatoService.salvar(contato);
+        return "redirect:/contato/listar";
+    }
+
+    @GetMapping("/editar/{id}")
+    public String editarForm(@ModelAttribute("contato") ContatoDTO contato, Model model){
+        model.addAttribute("contato", contatoService.obterContatoPorId(contato.id()));
+        return "/contato/editarForm";
+    }
+
+    @PostMapping("/editar")
+    public String editarSalvar(@ModelAttribute("contato") ContatoDTO contato, BindingResult bindingResult){
+        if(bindingResult.hasErrors()) return "/contato/editarForm";
+        contatoService.atualizarContato(contato);
+        return "redirect:/contato/listar";
+    }
+
+    @GetMapping("/excluir/{id}")
+    public String excluir(@ModelAttribute("contato") ContatoDTO contato){
+        contatoService.excluirContato(contato.id());
+        return "redirect:/contato/listar";
     }
 
 }

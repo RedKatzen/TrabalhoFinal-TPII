@@ -1,8 +1,12 @@
 package br.com.ienh.trabalhofinal.dto;
 
+import br.com.ienh.trabalhofinal.entities.Cliente;
 import jakarta.validation.constraints.NotNull;
 
 public record ContatoDTO(
+
+        Integer id,
+
         @NotNull
         String descricao,
 
@@ -10,10 +14,5 @@ public record ContatoDTO(
         String tipo,
 
         @NotNull
-        Integer idFuncionario,
-
-        Integer ifCliente,
-
-        @NotNull
-        Integer idAluno
+        Cliente cliente
 ) {}

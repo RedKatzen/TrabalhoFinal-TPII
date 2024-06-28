@@ -24,6 +24,10 @@ public class Marca {
 
     public Marca() {}
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }

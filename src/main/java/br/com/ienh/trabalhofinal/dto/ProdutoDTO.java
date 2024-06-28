@@ -1,5 +1,7 @@
 package br.com.ienh.trabalhofinal.dto;
 
+import br.com.ienh.trabalhofinal.entities.Grupo;
+import br.com.ienh.trabalhofinal.entities.Marca;
 import jakarta.validation.constraints.NotNull;
 
 public record ProdutoDTO(
@@ -15,9 +17,9 @@ public record ProdutoDTO(
 
         Integer codBarras,
 
-        Integer idGrupo,
+        Grupo grupo,
 
         @NotNull(message = "Informação obrigatória.")
-        Integer idMarca
+        Marca marca
 ) {
 }

@@ -24,6 +24,10 @@ public class Grupo {
 
     public Grupo() {}
 
+    public void setId(int id) {
+        this.id = id;
+    }
+
     public int getId() {
         return id;
     }
