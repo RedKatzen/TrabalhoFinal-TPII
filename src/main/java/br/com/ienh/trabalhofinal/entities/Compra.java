@@ -1,6 +1,8 @@
 package br.com.ienh.trabalhofinal.entities;
 
 import jakarta.persistence.*;
+
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -12,7 +14,10 @@ public class Compra {
     private int id;
 
     @Column(name="cod_nota")
-    private String codNota;
+    private LocalDate realizada;
+
+    @Column(name="valor")
+    private double valor;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name="cliente_id")
@@ -24,8 +29,8 @@ public class Compra {
         inverseJoinColumns = @JoinColumn(name="produto_id"))
     private List<Produto> produtos;
 
-    public Compra(String codNota) {
-        this.codNota = codNota;
+    public Compra(LocalDate realizada) {
+        this.realizada = realizada;
     }
 
     public Compra() {}
@@ -34,12 +39,20 @@ public class Compra {
         return id;
     }
 
-    public String getCodNota() {
-        return codNota;
+    public LocalDate getRealizada() {
+        return realizada;
     }
 
-    public void setCodNota(String codNota) {
-        this.codNota = codNota;
+    public void setRealizada(String codNota) {
+        this.realizada = realizada;
+    }
+
+    public double getValor() {
+        return valor;
+    }
+
+    public void setValor(double valor) {
+        this.valor = valor;
     }
 
     public List<Produto> getProdutos() {
@@ -63,7 +76,8 @@ public class Compra {
     public String toString() {
         return "Compra{" +
             "id=" + id +
-            ", codNota='" + codNota + '\'' +
+            ", Data realizada='" + realizada + '\'' +
+            ", valor=" + valor + '\'' +
             '}';
     }
 }

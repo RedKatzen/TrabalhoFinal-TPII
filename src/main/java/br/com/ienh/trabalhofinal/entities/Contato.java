@@ -10,11 +10,11 @@ public class Contato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="descricao")
-    private String descricao;
-
     @Column(name="tipo")
     private String tipo;
+
+    @Column(name="descricao")
+    private String descricao;
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "funcionario_id")

@@ -18,7 +18,7 @@ public class ClienteService {
     public List<ClienteDTO> listar(){
         List<ClienteDTO> clientes = new ArrayList<>();
         clienteRepository.findAll().forEach(cliente -> {
-            ClienteDTO clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf(), cliente.getTelefone());
+            ClienteDTO clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf());
             clientes.add(clienteDTO);
         });
         return clientes;
@@ -28,7 +28,6 @@ public class ClienteService {
         Cliente novoCliente = new Cliente();
         novoCliente.setNome(cliente.nome());
         novoCliente.setCpf(cliente.cpf());
-        novoCliente.setTelefone(cliente.telefone());
         clienteRepository.save(novoCliente);
     }
 
@@ -37,28 +36,27 @@ public class ClienteService {
         novoCliente.setId(cliente.id());
         novoCliente.setNome(cliente.nome());
         novoCliente.setCpf(cliente.cpf());
-        novoCliente.setTelefone(cliente.telefone());
         clienteRepository.save(novoCliente);
     }
 
     public ClienteDTO obterClientePorId(int id){
         ClienteDTO clienteDTO = null;
         Cliente cliente = clienteRepository.findById(id).get();
-        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf(), cliente.getTelefone());
+        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf());
         return clienteDTO;
     }
 
     public ClienteDTO obterClientePorCpf(String cpf){
         ClienteDTO clienteDTO = null;
         Cliente cliente = clienteRepository.findByCpf(cpf);
-        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf(), cliente.getTelefone());
+        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf());
         return clienteDTO;
     }
 
     public ClienteDTO obterClientePorNome(String nome){
         ClienteDTO clienteDTO = null;
         Cliente cliente = clienteRepository.findByNome(nome);
-        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf(), cliente.getTelefone());
+        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf());
         return clienteDTO;
     }
 

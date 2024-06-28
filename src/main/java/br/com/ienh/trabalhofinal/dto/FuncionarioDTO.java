@@ -9,6 +9,7 @@ public record FuncionarioDTO(
         @NotNull(message = "Informação obrigatória.")
         String nome,
 
+        @NotNull(message = "Informação obrigatória.")
         String identificador,
 
         @NotNull(message = "Informação obrigatória.")

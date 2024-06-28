@@ -18,9 +18,6 @@ public class Cliente {
     @Column(name="cpf")
     private String cpf;
 
-    @Column(name="telefone")
-    private String telefone;
-
     @OneToMany(mappedBy = "cliente",
                 cascade = CascadeType.ALL)
     private List<Compra> compras;
@@ -32,7 +29,6 @@ public class Cliente {
     public Cliente(String nome, String cpf, String telefone) {
         this.nome = nome;
         this.cpf = cpf;
-        this.telefone = telefone;
     }
 
     public Cliente() {}
@@ -61,14 +57,6 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public String getTelefone() {
-        return telefone;
-    }
-
-    public void setTelefone(String telefone) {
-        this.telefone = telefone;
-    }
-
     public List<Compra> getCompras() {
         return compras;
     }
@@ -91,7 +79,6 @@ public class Cliente {
             "id=" + id +
             ", nome='" + nome + '\'' +
             ", cpf='" + cpf + '\'' +
-            ", telefone='" + telefone + '\'' +
             '}';
     }
 }

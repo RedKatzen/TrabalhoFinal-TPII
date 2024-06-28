@@ -15,11 +15,11 @@ public class Funcionario {
     @Column(name="nome")
     private String nome;
 
-    @Column(name="identificador")
-    private String identificador;
-
     @Column(name="cpf")
     private String cpf;
+
+    @Column(name="identificador")
+    private String identificador;
 
     @OneToMany(mappedBy = "funcionario",
             cascade = CascadeType.ALL)
