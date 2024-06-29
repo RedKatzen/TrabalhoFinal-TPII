@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Editar Contato</title>
+</head>
+<body>
+
+<h1>Editar Contato</h1>
+
+<a href="/contato/listar">Voltar para a lista de contatos</a><br /><br />
+
+<form action="/contato/editar" method="post">
+    <input type="hidden" name="id" th:value="${contato.id}" />
+    <label>Descrição:</label><br/>
+    <input type="text" name="nome" th:value="${contato.descricao}" /><br />
+    <label>Tipo:</label><br/>
+    <select name="tipo" th:value="*{contato.tipo}">
+        <option value="Telefone">Telefone</option>
+        <option value="E-mail">E-mail</option>
+        <option value="Endereço">Endereço</option>
+    </select><br /><br/>
+    <label>Cliente:</label><br/>
+    <select name="cliente" th:value="*{contato.cliente}">
+        <option th:each="cliente: ${clientes}"
+                th:value="${cliente.id}"
+                th:text="${cliente.nome}">
+        </option>
+    </select><br/><br/>
+    <input type="submit" value="Salvar" />
+</form>
+
+</body>
+</html>
