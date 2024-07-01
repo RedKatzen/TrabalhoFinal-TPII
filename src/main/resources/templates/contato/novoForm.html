@@ -17,12 +17,12 @@
         <option value="E-mail">E-mail</option>
         <option value="Endereço">Endereço</option>
     </select><br /><br/>
-    <label>Aluno</label><br />
-    <select th:field="*{idAluno}">
-        <option th:each="aluno: ${alunos}"
-                th:value="${aluno.id}"
-                th:text="${aluno.nome}">
-    </select><br/><br/>
+    <label>Cliente</label><br />
+    <select th:field="*{idCliente}">
+        <option th:each="cliente: ${clientes}"
+                th:value="${cliente.id}"
+                th:text="${cliente.nome}">
+    </select>
     <input type="submit" value="Salvar" />
 </form>
 

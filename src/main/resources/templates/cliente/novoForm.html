@@ -16,9 +16,6 @@
     <label>CPF:</label><br/>
     <input type="text" name="cpf" th:value="${cliente.cpf}" /><br />
     <p th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></p>
-    <label>Telefone</label><br/>
-    <input type="text" th:field="*{telefone}"/><br/>
-    <p th:if="${#fields.hasErrors('telefone')}" th:errors="*{telefone}"></p><br /><br />
     <input type="submit" value="Salvar" />
 </form>
 

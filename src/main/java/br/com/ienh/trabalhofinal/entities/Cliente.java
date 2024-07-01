@@ -18,12 +18,9 @@ public class Cliente {
     @Column(name="cpf")
     private String cpf;
 
-    @OneToMany(mappedBy = "cliente",
-                cascade = CascadeType.ALL)
-    private List<Compra> compras;
-
-    @OneToMany(mappedBy = "cliente",
-                cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL,
+                    mappedBy = "cliente",
+                    orphanRemoval = true)
     private List<Contato> contatos;
 
     public Cliente(String nome, String cpf, String telefone) {
@@ -57,13 +54,6 @@ public class Cliente {
         this.cpf = cpf;
     }
 
-    public List<Compra> getCompras() {
-        return compras;
-    }
-
-    public void setCompras(List<Compra> compras) {
-        this.compras = compras;
-    }
 
     public List<Contato> getContatos() {
         return contatos;

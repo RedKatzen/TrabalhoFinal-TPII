@@ -28,16 +28,6 @@ public class Aluno {
     @Column(name="nascimento")
     private LocalDate nascimento;
 
-    @OneToMany(cascade = CascadeType.ALL,
-                mappedBy = "aluno")
-    private List<Contato> contatos;
-
-    @ManyToMany(cascade = CascadeType.ALL)
-    @JoinTable(name="aluno_turma",
-                joinColumns = @JoinColumn(name = "aluno_id"),
-                inverseJoinColumns = @JoinColumn(name = "turma_id"))
-    private List<Turma> turmas;
-
     public Aluno(String nome, String numeroMatricula, String cpf, String endereco, LocalDate nascimento) {
         this.nome = nome;
         this.numeroMatricula = numeroMatricula;
@@ -96,21 +86,6 @@ public class Aluno {
         this.nascimento = nascimento;
     }
 
-    public List<Contato> getContatos() {
-        return contatos;
-    }
-
-    public void setContatos(List<Contato> contatos) {
-        this.contatos = contatos;
-    }
-
-    public List<Turma> getTurmas() {
-        return turmas;
-    }
-
-    public void setTurmas(List<Turma> turmas) {
-        this.turmas = turmas;
-    }
 
     @Override
     public String toString() {

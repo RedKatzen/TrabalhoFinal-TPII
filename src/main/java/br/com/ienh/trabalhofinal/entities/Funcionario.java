@@ -21,9 +21,6 @@ public class Funcionario {
     @Column(name="identificador")
     private String identificador;
 
-    @OneToMany(mappedBy = "funcionario",
-            cascade = CascadeType.ALL)
-    private List<Contato> contatos;
 
     public Funcionario(String nome, String identificador, String cpf) {
         this.nome = nome;
@@ -64,14 +61,6 @@ public class Funcionario {
 
     public void setCpf(String cpf) {
         this.cpf = cpf;
-    }
-
-    public List<Contato> getContatos() {
-        return contatos;
-    }
-
-    public void setContatos(List<Contato> contatos) {
-        this.contatos = contatos;
     }
 
     @Override

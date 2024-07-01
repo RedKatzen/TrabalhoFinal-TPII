@@ -14,5 +14,5 @@ public record ContatoDTO(
         String tipo,
 
         @NotNull
-        Cliente cliente
+        Integer idCliente
 ) {}

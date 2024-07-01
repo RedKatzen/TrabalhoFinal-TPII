@@ -10,13 +10,13 @@ public class Contato {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="tipo")
-    private String tipo;
-
     @Column(name="descricao")
     private String descricao;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @Column(name="tipo")
+    private String tipo;
+
+    @ManyToOne
     @JoinColumn(name = "cliente_id")
     private Cliente cliente;
 

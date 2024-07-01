@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Lista de Contatos</title>
+</head>
+<body>
+
+<h1>Contatos</h1>
+
+<p><a href="/">Inicial</a></p>
+
+<table border="1">
+    <thead>
+    <th>Id</th>
+    <th>Tipo</th>
+    <th>Descrição</th>
+    <th>Cliente</th>
+    </thead>
+    <tbody>
+    <tr th:each="contato : ${contatos}">
+        <td th:text="${contato.id}"></td>
+        <td th:text="${contato.tipo}"></td>
+        <td th:text="${contato.descricao}"></td>
+        <td th:text="${contato.idCliente}"></td>
+        <td><a th:href="@{/contato/editar/{id}(id=${contato.id})}">Editar</a></td>
+        <td><a th:href="@{/contato/excluir/{id}(id=${contato.id})}">Excluir</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a href="/contato/novo">Novo contato</a></p>
+
+</body>
+</html>
