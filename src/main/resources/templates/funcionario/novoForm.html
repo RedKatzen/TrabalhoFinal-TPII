@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Funcionário</title>
+</head>
+<body>
+
+<h1>Novo Funcionário</h1>
+
+<form action="#" th:action="@{/funcionario/novo}" th:object="${funcionario}" method="post">
+    <label>Nome:</label><br/>
+    <input type="text" th:field="*{nome}" /><br /><br />
+    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+    <label>CPF:</label><br/>
+    <input type="text" name="cpf" th:field="*{cpf}" /><br /><br />
+    <p th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></p>
+    <label>Identificador:</label><br/>
+    <input type="text" name="identificador" th:field="*{identificador}" /><br /><br />
+    <p th:if="${#fields.hasErrors('identificador')}" th:errors="*{identificador}"></p>
+    <input type="submit" value="Salvar" />
+</form>
+
+</body>
+</html>

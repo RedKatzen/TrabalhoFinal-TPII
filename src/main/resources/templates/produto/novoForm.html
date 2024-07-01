@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Novo Produto</title>
+</head>
+<body>
+
+<h1>Novo Produto</h1>
+
+<form action="#" th:action="@{/produto/novo}" th:object="${produto}" method="post">
+    <label>Descrição:</label><br/>
+    <input type="text" th:field="*{descricao}" /><br />
+    <label>Preço:</label><br/>
+    <input type="text" th:field="*{preco}" /><br />
+    <label>Quantidade:</label><br/>
+    <input type="text" th:field="*{quantidade}" /><br />
+    <label>Código de barras:</label><br/>
+    <input type="text" th:field="*{codBarras}" /><br />
+    <label>Marca:</label>
+    <select th:field="*{idMarca}">
+        <option th:each="marca: ${marcas}"
+                th:value="${marca.id}"
+                th:text="${marca.nome}">
+        </option>
+    </select>
+    <label>Grupo:</label>
+    <select th:field="*{idGrupo}">
+        <option th:each="grupo: ${grupos}"
+                th:value="${grupo.id}"
+                th:text="${grupo.nome}">
+    </select><br/><br/>
+    <input type="submit" value="Salvar" />
+
+</form>
+
+</body>
+</html>

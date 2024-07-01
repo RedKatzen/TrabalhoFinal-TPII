@@ -10,19 +10,19 @@ public class Usuario {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @Column(name="nome")
-    private String nome;
+    @Column(name="username")
+    private String username;
 
-    @Column(name="senha")
-    private String senha;
+    @Column(name="password")
+    private String password;
 
-    @Column(name="tipo")
-    private String tipo;
+    @Column(name="role")
+    private String role;
 
-    public Usuario(String nome, String senha, String tipo) {
-        this.nome = nome;
-        this.senha = senha;
-        this.tipo = tipo;
+    public Usuario(String username, String password, String role) {
+        this.username = username;
+        this.password = password;
+        this.role = role;
     }
 
     public Usuario() {}
@@ -35,28 +35,38 @@ public class Usuario {
         return id;
     }
 
-    public String getNome() {
-        return nome;
+    public String getUsername() {
+        return username;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setUsername(String nome) {
+        this.username = nome;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getPassword() {
+        return password;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setPassword(String senha) {
+        this.password = senha;
     }
 
-    public String getTipo() {
-        return tipo;
+    public String getRole() {
+        return role;
     }
 
-    public void setTipo(String tipo) {
-        this.tipo = tipo;
+    public void setRole(String tipo) {
+        this.role = tipo;
+    }
+
+    @Override
+    public String toString() {
+        return "Usuario{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", password='" + password + '\'' +
+                ", role='" + role + '\'' +
+                '}';
     }
 
 }

@@ -18,7 +18,7 @@ public class UsuarioService {
     public List<UsuarioDTO> listar(){
         List<UsuarioDTO> usuarios = new ArrayList<>();
         usuarioRepository.findAll().forEach(usuario -> {
-            UsuarioDTO usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getNome(), usuario.getSenha(), usuario.getTipo());
+            UsuarioDTO usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getUsername(), usuario.getPassword(), usuario.getRole());
             usuarios.add(usuarioDTO);
         });
         return usuarios;
@@ -26,18 +26,18 @@ public class UsuarioService {
 
     public void salvar(UsuarioDTO usuario){
         Usuario novoUsuario = new Usuario();
-        novoUsuario.setNome(usuario.nome());
-        novoUsuario.setSenha(usuario.senha());
-        novoUsuario.setTipo(usuario.tipo());
+        novoUsuario.setUsername(usuario.nome());
+        novoUsuario.setPassword(usuario.senha());
+        novoUsuario.setRole(usuario.tipo());
         usuarioRepository.save(novoUsuario);
     }
 
     public void atualizarUsuario(UsuarioDTO usuario){
         Usuario novoUsuario = new Usuario();
         novoUsuario.setId(usuario.id());
-        novoUsuario.setNome(usuario.nome());
-        novoUsuario.setSenha(usuario.senha());
-        novoUsuario.setTipo(usuario.tipo());
+        novoUsuario.setUsername(usuario.nome());
+        novoUsuario.setPassword(usuario.senha());
+        novoUsuario.setRole(usuario.tipo());
         usuarioRepository.save(novoUsuario);
     }
 
@@ -48,21 +48,21 @@ public class UsuarioService {
     public UsuarioDTO obterUsuarioPorId(int id){
         UsuarioDTO usuarioDTO = null;
         Usuario usuario = usuarioRepository.findById(id).get();
-        usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getNome(), usuario.getSenha(), usuario.getTipo());
+        usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getUsername(), usuario.getPassword(), usuario.getRole());
         return usuarioDTO;
     }
 
     public UsuarioDTO obterUsuarioPorNome(String nome){
         UsuarioDTO usuarioDTO = null;
-        Usuario usuario = usuarioRepository.findByNome(nome);
-        usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getNome(), usuario.getSenha(), usuario.getTipo());
+        Usuario usuario = usuarioRepository.findByUsername(nome);
+        usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getUsername(), usuario.getPassword(), usuario.getRole());
         return usuarioDTO;
     }
 
     public UsuarioDTO obterUsuarioPorTipo(String tipo){
         UsuarioDTO usuarioDTO = null;
-        Usuario usuario = usuarioRepository.findByTipo(tipo);
-        usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getNome(), usuario.getSenha(), usuario.getTipo());
+        Usuario usuario = usuarioRepository.findByRole(tipo);
+        usuarioDTO = new UsuarioDTO(usuario.getId(), usuario.getUsername(), usuario.getPassword(), usuario.getRole());
         return usuarioDTO;
     }
 }

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar funcionários</title>
+    <link rel="stylesheet" href="/estilos.css" />
+</head>
+<body>
+
+<header>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sair da conta"/>
+    </form>
+</header>
+
+<h1>Funcionários</h1>
+
+<p><a href="/">Inicial</a></p>
+
+<table border="1">
+    <thead>
+    <th>Id</th>
+    <th>Nome</th>
+    <th>CPF</th>
+    <th>Identificador</th>
+    </thead>
+    <tbody>
+    <tr th:each="funcionario : ${funcionarios}">
+        <td th:text="${funcionario.id}"></td>
+        <td th:text="${funcionario.nome}"></td>
+        <td th:text="${funcionario.cpf}"></td>
+        <td th:text="${funcionario.identificador}"></td>
+        <td><a th:href="@{/funcionario/editar/{id}(id=${funcionario.id})}">Editar</a></td>
+        <td><a th:href="@{/funcionario/excluir/{id}(id=${funcionario.id})}">Excluir</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a href="/funcionario/novo">Novo funcionário</a></p>
+
+</body>
+</html>

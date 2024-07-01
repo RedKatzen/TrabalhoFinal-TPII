@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Novo Grupo</title>
+</head>
+<body>
+
+<h1>Novo Grupo</h1>
+
+<form action="#" th:action="@{/grupo/novo}" th:object="${grupo}" method="post">
+  <label>Nome:</label><br/>
+  <input type="text" th:field="*{nome}" /><br />
+  <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p><br />
+  <input type="submit" value="Salvar" />
+</form>
+
+</body>
+</html>

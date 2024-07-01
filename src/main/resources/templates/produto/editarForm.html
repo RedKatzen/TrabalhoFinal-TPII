@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Editar Produto</title>
+</head>
+<body>
+
+<h1>Editar Produto</h1>
+
+<p><a href="/">Inicial</a></p>
+
+<form action="/produto/editar"  method="post">
+  <input type="hidden" name="id" th:value="${produto.id}" />
+    <label>Descrição</label><br />
+    <input type="text" name="descricao" th:value="${produto.descricao}" /><br /><br />
+    <label>Preço</label><br />
+    <input type="text" name="preco" th:value="${produto.preco}" /><br /><br />
+    <label>Quantidade</label><br />
+    <input type="text" name="quantidade" th:value="${produto.quantidade}" /><br /><br />
+    <label>Código de barras</label><br />
+    <input type="text" name="codBarras" th:value="${produto.codBarras}" /><br /><br />
+    <label for="grupo">Grupo</label>
+    <select id="grupo" name="idGrupo" required>
+      <option th:each="grupo : ${grupos}" th:value="${grupo.id}" th:text="${grupo.nome}"></option>
+    </select>
+    <label for="marca">Marca</label>
+    <select id="marca" name="idMarca" required>
+      <option th:each="marca : ${marcas}" th:value="${marca.id}" th:text="${marca.nome}"></option>
+    </select><br /><br />
+  <input type="submit" value="Salvar" />
+</form>
+
+<p><a href="/contato/listar">Voltar</a></p>
+
+</body>
+</html>

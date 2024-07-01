@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Atualizar Grupo</title>
+</head>
+<body>
+
+<header>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sair da conta"/>
+    </form>
+</header>
+
+<h1>Editar Grupo</h1>
+
+<a href="/grupo/listar">Voltar para a lista de grupos</a><br /><br />
+
+<form action="/grupo/editar" method="post">
+  <input type="hidden" name="id" th:value="${grupo.id}" />
+  <label>Nome:</label><br/>
+  <input type="text" name="nome" th:value="${grupo.nome}" /><br /><br />
+  <input type="submit" value="Salvar" />
+</form>
+
+</body>
+</html>

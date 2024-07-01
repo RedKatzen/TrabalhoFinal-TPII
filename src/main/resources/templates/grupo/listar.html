@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Listar grupos</title>
+    <link rel="stylesheet" href="/estilos.css" />
+</head>
+<body>
+
+<header>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sair da conta"/>
+    </form>
+</header>
+
+<h1>Grupos</h1>
+
+<p><a href="/">Inicial</a></p>
+
+<table border="1">
+    <thead>
+    <th>Id</th>
+    <th>Nome</th>
+    </thead>
+    <tbody>
+    <tr th:each="grupo : ${grupos}">
+        <td th:text="${grupo.id}"></td>
+        <td th:text="${grupo.nome}"></td>
+        <td><a th:href="@{/grupo/editar/{id}(id=${grupo.id})}">Editar</a></td>
+        <td><a th:href="@{/grupo/excluir/{id}(id=${grupo.id})}">Excluir</a></td>
+    </tr>
+    </tbody>
+</table>
+
+<p><a href="/grupo/novo">Novo grupo</a></p>
+
+</body>
+</html>

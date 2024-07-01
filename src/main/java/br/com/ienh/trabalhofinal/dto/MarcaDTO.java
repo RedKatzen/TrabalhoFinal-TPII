@@ -6,7 +6,7 @@ public record MarcaDTO(
 
         Integer id,
 
-        @NotNull(message = "O nome do grupo é obrigatório.")
+        @NotNull(message = "O nome do idGrupo é obrigatório.")
         String nome
 
 ) {

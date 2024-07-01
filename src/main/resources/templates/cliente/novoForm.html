@@ -14,7 +14,7 @@
     <input type="text" th:field="*{nome}" /><br />
     <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
     <label>CPF:</label><br/>
-    <input type="text" name="cpf" th:value="${cliente.cpf}" /><br />
+    <input type="text" th:field="*{cpf}" /><br />
     <p th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></p>
     <input type="submit" value="Salvar" />
 </form>
