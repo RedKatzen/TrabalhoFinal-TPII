@@ -4,40 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Listar funcionários</title>
-    <link rel="stylesheet" href="/estilos.css" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/listar.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sair da conta"/>
+        <input type="submit" value="Sair da conta" class="btnSair"/>
     </form>
 </header>
+<main class="container">
+    <h1>Funcionários</h1>
 
-<h1>Funcionários</h1>
+    <div class="container-link">
+        <p><a href="/" class="link">Voltar a tela inicial</a></p>
+    </div>
 
-<p><a href="/">Inicial</a></p>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>CPF</th>
+                <th>Identificador</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="funcionario : ${funcionarios}">
+            <td th:text="${funcionario.id}"></td>
+            <td th:text="${funcionario.nome}"></td>
+            <td th:text="${funcionario.cpf}"></td>
+            <td th:text="${funcionario.identificador}"></td>
+            <td>
+                <a th:href="@{/funcionario/editar/{id}(id=${funcionario.id})}" class="btn btnEdit">Editar</a>
+                <a th:href="@{/funcionario/excluir/{id}(id=${funcionario.id})}" class="btn btnDelete">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
 
-<table border="1">
-    <thead>
-    <th>Id</th>
-    <th>Nome</th>
-    <th>CPF</th>
-    <th>Identificador</th>
-    </thead>
-    <tbody>
-    <tr th:each="funcionario : ${funcionarios}">
-        <td th:text="${funcionario.id}"></td>
-        <td th:text="${funcionario.nome}"></td>
-        <td th:text="${funcionario.cpf}"></td>
-        <td th:text="${funcionario.identificador}"></td>
-        <td><a th:href="@{/funcionario/editar/{id}(id=${funcionario.id})}">Editar</a></td>
-        <td><a th:href="@{/funcionario/excluir/{id}(id=${funcionario.id})}">Excluir</a></td>
-    </tr>
-    </tbody>
-</table>
-
-<p><a href="/funcionario/novo">Novo funcionário</a></p>
+    <div class="container-link">
+        <p><a href="/funcionario/novo" class="link">+ Novo funcionário</a></p>
+    </div>
+</main>
 
 </body>
 </html>

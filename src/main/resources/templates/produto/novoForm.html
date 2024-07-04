@@ -4,36 +4,42 @@
 <head>
     <meta charset="UTF-8">
     <title>Novo Produto</title>
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/novoForm.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<h1>Novo Produto</h1>
+<main class="container">
+    <h1>Novo Produto</h1>
 
-<form action="#" th:action="@{/produto/novo}" th:object="${produto}" method="post">
-    <label>Descrição:</label><br/>
-    <input type="text" th:field="*{descricao}" /><br />
-    <label>Preço:</label><br/>
-    <input type="text" th:field="*{preco}" /><br />
-    <label>Quantidade:</label><br/>
-    <input type="text" th:field="*{quantidade}" /><br />
-    <label>Código de barras:</label><br/>
-    <input type="text" th:field="*{codBarras}" /><br />
-    <label>Marca:</label>
-    <select th:field="*{idMarca}">
-        <option th:each="marca: ${marcas}"
-                th:value="${marca.id}"
-                th:text="${marca.nome}">
-        </option>
-    </select>
-    <label>Grupo:</label>
-    <select th:field="*{idGrupo}">
-        <option th:each="grupo: ${grupos}"
-                th:value="${grupo.id}"
-                th:text="${grupo.nome}">
-    </select><br/><br/>
-    <input type="submit" value="Salvar" />
-
-</form>
-
+    <form action="#" th:action="@{/produto/novo}" th:object="${produto}" method="post">
+        <label>Descrição:</label>
+        <input type="text" th:field="*{descricao}" class="campo"/>
+        <label>Preço:</label>
+        <input type="text" th:field="*{preco}" class="campo"/>
+        <label>Quantidade:</label>
+        <input type="text" th:field="*{quantidade}" class="campo"/>
+        <label>Código de barras:</label><br/>
+        <input type="text" th:field="*{codBarras}" class="campo"/>
+        <label>Marca:</label>
+        <select th:field="*{idMarca}" class="campo">
+            <option th:each="marca: ${marcas}"
+                    th:value="${marca.id}"
+                    th:text="${marca.nome}">
+            </option>
+        </select>
+        <label>Grupo:</label>
+        <select th:field="*{idGrupo}" class="campo">
+            <option th:each="grupo: ${grupos}"
+                    th:value="${grupo.id}"
+                    th:text="${grupo.nome}">
+        </select>
+        <div class="container-action">
+            <input type="submit" value="Salvar" class="btn btnSalvar"/>
+            <p><a href="/produto/listar" class="btn btnCancelar">Cancelar</a></p>
+        </div>
+    </form>
+</main>
 </body>
 </html>

@@ -1,0 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap');
+
+body, h1, h2, p {
+    font-family: 'Bahnschrift', sans-serif;
+}
+
+body, main, div, a, h1, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}

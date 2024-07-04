@@ -4,20 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Novo Cliente</title>
+    <link rel="stylesheet" href="/global.css">
+    <link rel="stylesheet" href="/novoForm.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<main class="container">
+    <h1>Novo Cliente</h1>
 
-<h1>Novo Cliente</h1>
+    <a href="/cliente/listar" class="link">Voltar para a lista de clientes</a>
 
-<form action="#" th:action="@{/cliente/novo}" th:object="${cliente}" method="post">
-    <label>Nome:</label><br/>
-    <input type="text" th:field="*{nome}" /><br />
-    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
-    <label>CPF:</label><br/>
-    <input type="text" th:field="*{cpf}" /><br />
-    <p th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}"></p>
-    <input type="submit" value="Salvar" />
-</form>
+    <form action="#" th:action="@{/cliente/novo}" th:object="${cliente}" method="post">
+        <label>Nome:</label>
+        <input type="text" th:field="*{nome}" class="campo"/>
+        <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}" class="msgError"></p>
+
+        <label>CPF:</label>
+        <input type="text" th:field="*{cpf}" class="campo"/>
+        <p th:if="${#fields.hasErrors('cpf')}" th:errors="*{cpf}" class="msgError"></p>
+        <div class="container-action">
+            <input type="submit" value="Salvar" class="btn btnSalvar"/>
+            <p><a href="/cliente/listar" class="btn btnCancelar">Cancelar</a></p>
+        </div>
+    </form>
+</main>
 
 </body>
 </html>

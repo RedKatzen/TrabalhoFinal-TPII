@@ -4,17 +4,26 @@
 <head>
   <meta charset="UTF-8">
   <title>Novo Grupo</title>
+  <link rel="stylesheet" href="/global.css">
+  <link rel="stylesheet" href="/novoForm.css">
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<main class="container">
+  <h1>Novo Grupo</h1>
 
-<h1>Novo Grupo</h1>
+  <a href="/grupo/listar" class="link">Voltar para a lista de grupos</a>
 
-<form action="#" th:action="@{/grupo/novo}" th:object="${grupo}" method="post">
-  <label>Nome:</label><br/>
-  <input type="text" th:field="*{nome}" /><br />
-  <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p><br />
-  <input type="submit" value="Salvar" />
-</form>
+  <form action="#" th:action="@{/grupo/novo}" th:object="${grupo}" method="post">
+    <label>Nome:</label>
+    <input type="text" th:field="*{nome}" class="campo"/>
+    <p th:if="${#fields.hasErrors('nome')}" th:errors="*{nome}"></p>
+    <div class="container-action">
+      <input type="submit" value="Salvar" class="btn btnSalvar"/>
+      <p><a href="/grupo/listar" class="btn btnCancelar">Cancelar</a></p>
+    </div>
+  </form>
+</main>
 
 </body>
 </html>

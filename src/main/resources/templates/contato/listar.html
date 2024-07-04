@@ -4,33 +4,52 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de Contatos</title>
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/listar.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
-<h1>Contatos</h1>
+<header>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sair da conta" class="btnSair"/>
+    </form>
+</header>
+<main class="container">
+    <h1>Contatos</h1>
 
-<p><a href="/">Inicial</a></p>
+    <div class="container-link">
+        <p><a href="/" class="link">Voltar a tela inicial</a></p>
+    </div>
 
-<table border="1">
-    <thead>
-    <th>Id</th>
-    <th>Tipo</th>
-    <th>Descrição</th>
-    <th>Cliente</th>
-    </thead>
-    <tbody>
-    <tr th:each="contato : ${contatos}">
-        <td th:text="${contato.id}"></td>
-        <td th:text="${contato.tipo}"></td>
-        <td th:text="${contato.descricao}"></td>
-        <td th:text="${contato.idCliente}"></td>
-        <td><a th:href="@{/contato/editar/{id}(id=${contato.id})}">Editar</a></td>
-        <td><a th:href="@{/contato/excluir/{id}(id=${contato.id})}">Excluir</a></td>
-    </tr>
-    </tbody>
-</table>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Tipo</th>
+                <th>Descrição</th>
+                <th>Cliente</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="contato : ${contatos}">
+                <td th:text="${contato.id}"></td>
+                <td th:text="${contato.tipo}"></td>
+                <td th:text="${contato.descricao}"></td>
+                <td th:text="${contato.idCliente}"></td>
+                <td>
+                    <a th:href="@{/contato/editar/{id}(id=${contato.id})}" class="btn btnEdit">Editar</a>
+                    <a th:href="@{/contato/excluir/{id}(id=${contato.id})}" class="btn btnDelete">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-<p><a href="/contato/novo">Novo contato</a></p>
+    <div class="container-link">
+        <p><a href="/contato/novo" class="link">+ Novo contato</a></p>
+    </div>
+</main>
 
 </body>
 </html>

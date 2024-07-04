@@ -1,41 +1,51 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
-<html lang="en">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Listar clientes</title>
-    <link rel="stylesheet" href="/estilos.css" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/listar.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <header>
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sair da conta"/>
+        <input type="submit" value="Sair da conta" class="btnSair"/>
     </form>
 </header>
 
-<h1>Clientes</h1>
+<main class="container">
+    <h1>Clientes</h1>
 
-<p><a href="/">Inicial</a></p>
+    <div class="container-link">
+        <p><a href="/" class="link">Voltar a tela inicial</a></p>
+    </div>
 
-<table border="1">
-    <thead>
-        <th>Id</th>
-        <th>Nome</th>
-        <th>CPF</th>
-    </thead>
-    <tbody>
-     <tr th:each="cliente : ${clientes}">
-         <td th:text="${cliente.id}"></td>
-         <td th:text="${cliente.nome}"></td>
-         <td th:text="${cliente.cpf}"></td>
-         <td><a th:href="@{/cliente/editar/{id}(id=${cliente.id})}">Editar</a></td>
-         <td><a th:href="@{/cliente/excluir/{id}(id=${cliente.id})}">Excluir</a></td>
-     </tr>
-    </tbody>
-</table>
+    <table>
+        <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>CPF</th>
+            <th>Ações</th>
+        </tr>
+        </thead>
+        <tbody>
+            <tr th:each="cliente : ${clientes}">
+                <td th:text="${cliente.id}"></td>
+                <td th:text="${cliente.nome}"></td>
+                <td th:text="${cliente.cpf}"></td>
+                <td>
+                    <a th:href="@{/cliente/editar/{id}(id=${cliente.id})}" class="btn btnEdit">Editar</a>
+                    <a th:href="@{/cliente/excluir/{id}(id=${cliente.id})}" class="btn btnDelete">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-<p><a href="/cliente/novo">Novo cliente</a></p>
-
+    <div class="container-link">
+        <p><a href="/cliente/novo" class="link">+ Novo cliente</a></p>
+    </div>
+</main>
 </body>
 </html>

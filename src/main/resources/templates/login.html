@@ -2,18 +2,33 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 <head>
     <title>Login do Sistema</title>
+    <link rel="stylesheet" href="/login.css">
+    <link rel="stylesheet" href="/global.css">
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-<div th:if="${param.error}">
-    Usuário ou senha inválidos.
+<div class="container">
+    <div th:if="${param.error}" class="msgError">
+        Usuário ou senha inválidos.
+    </div>
+    <div th:if="${param.logout}" class="msgLogout">
+        Você deslogou com sucesso.
+    </div>
+    <form th:action="@{/login}" method="post">
+        <div class="form-login">
+            <label> Nome
+                <input type="text" name="username" placeholder="Nome de usuário" required/>
+            </label>
+        </div>
+        <div class="form-login">
+            <label> Senha
+                <input type="password" name="password" placeholder="Senha" required/>
+            </label>
+        </div>
+        <div class="form-login">
+            <input type="submit" value="Entrar" class="btnLogin"/>
+        </div>
+    </form>
 </div>
-<div th:if="${param.logout}">
-    Você deslogou com sucesso.
-</div>
-<form th:action="@{/login}" method="post">
-    <div><label> Nome : <input type="text" name="username"/> </label></div>
-    <div><label> Senha: <input type="password" name="password"/> </label></div>
-    <div><input type="submit" value="Entrar"/></div>
-</form>
 </body>
 </html>

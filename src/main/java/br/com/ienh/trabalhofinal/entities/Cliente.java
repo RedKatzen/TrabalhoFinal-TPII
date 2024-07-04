@@ -19,8 +19,7 @@ public class Cliente {
     private String cpf;
 
     @OneToMany(cascade = CascadeType.ALL,
-                    mappedBy = "cliente",
-                    orphanRemoval = true)
+                    mappedBy = "cliente")
     private List<Contato> contatos;
 
     public Cliente(String nome, String cpf, String telefone) {

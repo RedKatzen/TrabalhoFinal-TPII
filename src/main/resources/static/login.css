@@ -1,0 +1,61 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0 2rem;
+    background-color: #f0f0f0;
+}
+
+.container {
+    background: #ffffff;
+    padding: 5rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.msgError, .msgLogout {
+    color: #ff0000;
+    margin-bottom: 1rem;
+}
+
+.msgLogout {
+    color: #007b00;
+}
+
+.form-login {
+    margin-bottom: 1rem;
+}
+
+label {
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.btnLogin {
+    display: inline-block;
+    padding: 0.75rem 2rem;
+    margin-top: 1rem;
+    border-radius: 5px;
+    background-color: #4a90e2;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Bahnschrift', sans-serif;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+.btnLogin:hover {
+    background-color: #000000;
+}

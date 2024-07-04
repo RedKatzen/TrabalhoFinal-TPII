@@ -4,36 +4,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Listar de marcas</title>
-    <link rel="stylesheet" href="/estilos.css" />
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/listar.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sair da conta"/>
+        <input type="submit" value="Sair da conta" class="btnSair"/>
     </form>
 </header>
 
-<h1>Marcas</h1>
+<main class="container">
+    <h1>Marcas</h1>
 
-<p><a href="/">Inicial</a></p>
+    <div class="container-link">
+        <p><a href="/" class="link">Voltar a tela inicial</a></p>
+    </div>
 
-<table border="1">
-    <thead>
-    <th>Id</th>
-    <th>Nome</th>
-    </thead>
-    <tbody>
-    <tr th:each="marca : ${marcas}">
-        <td th:text="${marca.id}"></td>
-        <td th:text="${marca.nome}"></td>
-        <td><a th:href="@{/marca/editar/{id}(id=${marca.id})}">Editar</a></td>
-        <td><a th:href="@{/marca/excluir/{id}(id=${marca.id})}">Excluir</a></td>
-    </tr>
-    </tbody>
-</table>
-
-<p><a href="/marca/novo">Nova marca</a></p>
-
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Id</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+        <tr th:each="marca : ${marcas}">
+            <td th:text="${marca.id}"></td>
+            <td th:text="${marca.nome}"></td>
+            <td>
+                <a th:href="@{/marca/editar/{id}(id=${marca.id})}" class="btn btnEdit">Editar</a>
+                <a th:href="@{/marca/excluir/{id}(id=${marca.id})}" class="btn btnDelete">Excluir</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <div class="container-link">
+        <p><a href="/marca/novo" class="link">+ Nova marca</a></p>
+    </div>
+</main>
 </body>
 </html>

@@ -4,50 +4,61 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de produtos</title>
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/listar.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
 
 <header>
     <form th:action="@{/logout}" method="post">
-        <input type="submit" value="Sair da conta"/>
+        <input type="submit" value="Sair da conta" class="btnSair"/>
     </form>
-
-<!--    <form action="/produto/pesquisar" method="post">-->
-<!--        <input type="text" name="nome" placeholder="Nome do produto">-->
-<!--        <input type="submit" value="Pesquisar">-->
-<!--    </form>-->
 </header>
+<main class="container">
+    <h1>Produtos</h1>
 
-<h1>Produtos</h1>
+    <div class="container-link">
+        <p><a href="/" class="link">Voltar a tela inicial</a></p>
+    </div>
 
-<p><a href="/">Inicial</a></p>
+    <table border="1">
+        <thead>
+        <th>Id</th>
+        <th>Descrição</th>
+        <th>Preço</th>
+        <th>Quantidade</th>
+        <th>Código de barras</th>
+        <th>Marca</th>
+        <th>Grupo</th>
+        <th>Ações</th>
+        </thead>
+        <tbody>
+            <tr th:each="produto : ${produtos}">
+                <td th:text="${produto.id}"></td>
+                <td th:text="${produto.descricao}"></td>
+                <td th:text="${produto.preco}"></td>
+                <td th:text="${produto.quantidade}"></td>
+                <td th:text="${produto.codBarras}"></td>
+                <td th:text="${produto.idMarca}"></td>
+                <td th:text="${produto.idGrupo}"></td>
+                <td>
+                    <a th:href="@{/produto/editar/{id}(id=${produto.id})}" class="btn btnEdit">Editar</a>
+                    <a th:href="@{/produto/excluir/{id}(id=${produto.id})}" class="btn btnDelete">Excluir</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
 
-<table border="1">
-    <thead>
-    <th>Id</th>
-    <th>Descrição</th>
-    <th>Preço</th>
-    <th>Quantidade</th>
-    <th>Código de barras</th>
-    <th>Marca</th>
-    <th>Grupo</th>
-    </thead>
-    <tbody>
-        <tr th:each="produto : ${produtos}">
-            <td th:text="${produto.id}"></td>
-            <td th:text="${produto.descricao}"></td>
-            <td th:text="${produto.preco}"></td>
-            <td th:text="${produto.quantidade}"></td>
-            <td th:text="${produto.codBarras}"></td>
-            <td th:text="${produto.idMarca}"></td>
-            <td th:text="${produto.idGrupo}"></td>
-            <td><a th:href="@{/produto/editar/{id}(id=${produto.id})}">Editar</a></td>
-            <td><a th:href="@{/produto/excluir/{id}(id=${produto.id})}">Excluir</a></td>
-        </tr>
-    </tbody>
-</table>
-
-<p><a href="/produto/novo">Novo produto</a></p>
-
+    <div class="container-link">
+        <p><a href="/produto/novo" class="link">+ Novo produto</a></p>
+    </div>
+</main>
+<script>
+    function toggleMenu(id) {
+        const submenu = document.getElementById(id);
+        submenu.classList.toggle("abrir-menu");
+    }
+</script>
 </body>
 </html>

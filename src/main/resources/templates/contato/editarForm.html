@@ -4,31 +4,35 @@
 <head>
     <meta charset="UTF-8">
     <title>Editar Contato</title>
+    <link rel="stylesheet" href="/global.css" />
+    <link rel="stylesheet" href="/editarForm.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<main class="container">
+    <h1>Editar Contato</h1>
 
-<h1>Editar Contato</h1>
+    <a href="/contato/listar" class="link">Voltar para a lista de contatos</a>
 
-<p><a href="/">Inicial</a></p>
-
-<form action="/contato/editar"  method="post">
-    <input type="hidden" name="id" th:value="${contato.id}" />
-    <label>Descrição</label><br />
-    <input type="text" name="descricao" th:value="${contato.descricao}" /><br /><br />
-    <label>Tipo</label><br />
-    <select name="tipo" th:value="${contato.tipo}" >
-        <option value="Telefone">Telefone</option>
-        <option value="E-mail">E-mail</option>
-        <option value="Endereço">Endereço</option>
-    </select><br /><br/>
-    <label for="cliente">Cliente:</label>
-    <select id="cliente" name="idCliente" required>
-        <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
-    </select>
-    <input type="submit" value="Salvar" />
-</form>
-
-<p><a href="/contato/listar">Voltar</a></p>
-
+    <form action="/contato/editar"  method="post">
+        <input type="hidden" name="id" th:value="${contato.id}" />
+        <label>Descrição</label>
+        <input type="text" name="descricao" th:value="${contato.descricao}" class="campo"/>
+        <label>Tipo</label>
+        <select name="tipo" th:value="${contato.tipo}" class="campo">
+            <option value="Telefone">Telefone</option>
+            <option value="E-mail">E-mail</option>
+            <option value="Endereço">Endereço</option>
+        </select>
+        <label for="cliente">Cliente:</label>
+        <select id="cliente" name="idCliente" required class="campo">
+            <option th:each="cliente : ${clientes}" th:value="${cliente.id}" th:text="${cliente.nome}"></option>
+        </select>
+        <div class="container-action">
+            <input type="submit" value="Salvar" class="btn btnSalvar" />
+            <p><a href="/contato/listar" class="btn btnCancelar">Cancelar</a></p>
+        </div>
+    </form>
+</main>
 </body>
 </html>

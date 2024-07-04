@@ -1,0 +1,130 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 100vh;
+    background-color: #f0f0f0;
+    margin: 0 2rem;
+}
+
+header {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+}
+
+header .btnSair {
+    font-family: 'Bahnschrift', sans-serif;
+    font-weight: bold;
+    background-color: #4a90e2;
+    color: #f5f5f5;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+.btnSair:hover {
+    background-color: #cccccc;
+    color: black;
+}
+
+.container {
+    width: 100%;
+    max-width: 1000px;
+    background: #ffffff;
+    padding: 2rem;
+    margin-top: 8rem;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-left: 1rem;
+}
+
+h1 {
+    text-align: center;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+p {
+    text-align: center;
+    font-family: 'Bahnschrift', sans-serif;
+    margin-bottom: 1rem;
+}
+
+.container-link{
+    width: 100%;
+    display: flex;
+    align-items: start;
+    margin-bottom: 2rem;
+}
+
+.link {
+    color: #4a90e2;
+    text-decoration: none;
+    font-family: 'Bahnschrift', sans-serif;
+    font-weight: bold;
+}
+.link:hover {
+    text-decoration: underline;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+th, td {
+    padding: 0.75rem;
+    text-align: left;
+    font-size: 1rem;
+}
+
+thead th {
+    background-color: #d9eaf7;
+    font-family: 'Be Vietnam Pro', sans-serif;
+    font-weight: 700;
+}
+
+tbody tr {
+    background-color: #f5f5f5;
+}
+
+tbody tr:nth-child(even) {
+    background-color: #e9e9e9;
+}
+
+th, td {
+    border: 1px solid #ccc;
+}
+
+.btn {
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    text-align: center;
+    color: #f5f5f5;
+    text-decoration: none;
+    font-family: 'Bahnschrift', sans-serif;
+    font-weight: bold;
+}
+
+.btnEdit {
+    background-color: #4a90e2;
+}
+
+.btnDelete {
+    background-color: #d9534f;
+}
+
+.btn:hover {
+    opacity: 0.9;
+}
+
+a.btn {
+    display: inline-block;
+    margin-right: 0.5rem;
+}

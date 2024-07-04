@@ -3,14 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <title>Página Inicial</title>
+    <link rel="stylesheet" href="/telaInicial.css" />
+    <link rel="stylesheet" href="/header.css" />
+    <link rel="stylesheet" href="/global.css">
 </head>
 <body>
+<header>
+    <div class="header-item" onclick="toggleMenu('gestao')">
+        Gestão
+        <div class="submenu" id="gestao">
+            <a href="produto/listar">Produtos</a>
+            <a href="marca/listar">Marcas</a>
+            <a href="grupo/listar">Grupos</a>
+            <a href="cliente/listar">Clientes</a>
+        </div>
+    </div>
+    <div class="header-item" onclick="toggleMenu('administrativo')">
+        Administrativo
+        <div class="submenu" id="administrativo">
+            <a href="funcionario/listar">Funcionários</a>
+            <a href="contato/listar">Contatos</a>
+            <a href="#">Link 3</a>
+        </div>
+    </div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sair da conta" class="btnSair"/>
+    </form>
+</header>
+<main>
+    <div class="container-txt">
+        <h1>Tela Inicial do Gestão</h1>
+        <p>Seja bem-vindo ao sistema de gestão de produtos!</p>
+    </div>
 
-<h1>Menu</h1>
+    <p><a href="/cliente/listar" class="btnEntrar">Entrar</a></p>
+</main>
 
-<p>Tela inicial</p>
-
-<p><a href="cliente/listar">Lista de Clientes</a></p>
-
+<script>
+    function toggleMenu(id) {
+        const submenu = document.getElementById(id);
+        submenu.classList.toggle("abrir-menu");
+    }
+</script>
 </body>
 </html>
