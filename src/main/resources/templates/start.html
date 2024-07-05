@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Página Inicial</title>
+    <base href="/">
+    <link rel="stylesheet" href="/css/telaInicial.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/global.css">
+</head>
+<body>
+<header>
+    <div class="header-item" onclick="toggleMenu('gestao')">
+        Gestão
+        <div class="submenu" id="gestao">
+            <a href="produto/listar">Produtos</a>
+            <a href="marca/listar">Marcas</a>
+            <a href="grupo/listar">Grupos</a>
+            <a href="cliente/listar">Clientes</a>
+        </div>
+    </div>
+    <div class="header-item" onclick="toggleMenu('administrativo')">
+        Administrativo
+        <div class="submenu" id="administrativo">
+            <a href="funcionario/listar">Funcionários</a>
+            <a href="contato/listar">Contatos</a>
+        </div>
+    </div>
+    <form th:action="@{/logout}" method="post">
+        <input type="submit" value="Sair da conta" class="btnSair"/>
+    </form>
+</header>
+<main>
+    <div class="container-txt">
+        <h1>Tela Inicial do Gestão</h1>
+        <p>Seja bem-vindo ao sistema de gestão de produtos!</p>
+    </div>
+
+    <p><a href="/cliente/listar" class="btnEntrar">Visualizar clientes</a></p>
+</main>
+
+<script>
+    function toggleMenu(id) {
+        const submenu = document.getElementById(id);
+        submenu.classList.toggle("abrir-menu");
+    }
+</script>
+</body>
+</html>

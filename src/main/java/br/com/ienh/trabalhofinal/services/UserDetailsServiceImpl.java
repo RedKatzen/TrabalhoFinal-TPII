@@ -1,8 +1,8 @@
 package br.com.ienh.trabalhofinal.services;
 
-import br.com.ienh.trabalhofinal.entities.Usuario;
-import br.com.ienh.trabalhofinal.repositories.UsuarioRepository;
-import org.springframework.security.core.userdetails.User;
+import br.com.ienh.trabalhofinal.entities.User;
+import br.com.ienh.trabalhofinal.repositories.UserRepository;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -13,17 +13,17 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 public class UserDetailsServiceImpl implements UserDetailsService{
 
-    private final UsuarioRepository usuarioRepository;
+    private final UserRepository userRepository;
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        final Usuario usuario = usuarioRepository.findByUsername(username);
-        if (usuario == null) {
+        final User user = userRepository.findByUsername(username);
+        if (user == null) {
             throw new UsernameNotFoundException("Usuário não encontrado: " + username);
         }
-        return User.withUsername(usuario.getUsername())
-                .password(usuario.getPassword())
-                .roles(usuario.getRole())
+        return org.springframework.security.core.userdetails.User.withUsername(user.getUsername())
+                .password(user.getPassword())
+                //.roles(user.getRole())
                 .accountExpired(false)
                 .accountLocked(false)
                 .credentialsExpired(false)

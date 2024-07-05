@@ -2,9 +2,12 @@ package br.com.ienh.trabalhofinal.entities;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "usuario")
-public class Usuario {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,13 +22,13 @@ public class Usuario {
     @Column(name="role")
     private String role;
 
-    public Usuario(String username, String password, String role) {
+    public User(String username, String password, String role) {
         this.username = username;
         this.password = password;
         this.role = role;
     }
 
-    public Usuario() {}
+    public User() {}
 
     public void setId(int id) {
         this.id = id;
@@ -51,21 +54,12 @@ public class Usuario {
         this.password = senha;
     }
 
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String tipo) {
-        this.role = tipo;
-    }
-
     @Override
     public String toString() {
         return "Usuario{" +
                 "id=" + id +
                 ", username='" + username + '\'' +
                 ", password='" + password + '\'' +
-                ", role='" + role + '\'' +
                 '}';
     }
 
