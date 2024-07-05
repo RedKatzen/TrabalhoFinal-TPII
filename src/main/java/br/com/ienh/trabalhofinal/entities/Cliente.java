@@ -22,7 +22,7 @@ public class Cliente {
                     mappedBy = "cliente")
     private List<Contato> contatos;
 
-    public Cliente(String nome, String cpf, String telefone) {
+    public Cliente(String nome, String cpf) {
         this.nome = nome;
         this.cpf = cpf;
     }

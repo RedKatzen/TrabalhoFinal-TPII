@@ -1,6 +1,9 @@
 package br.com.ienh.trabalhofinal.controllers;
 
 import br.com.ienh.trabalhofinal.dto.ClienteDTO;
+import br.com.ienh.trabalhofinal.entities.Cliente;
+import br.com.ienh.trabalhofinal.entities.Contato;
+import br.com.ienh.trabalhofinal.repositories.ClienteRepository;
 import br.com.ienh.trabalhofinal.services.ClienteService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -8,6 +11,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @Controller
 @RequestMapping("/cliente")

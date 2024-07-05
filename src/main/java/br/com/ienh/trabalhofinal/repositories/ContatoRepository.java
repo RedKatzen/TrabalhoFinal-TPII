@@ -11,4 +11,6 @@ public interface ContatoRepository extends CrudRepository<Contato, Integer> {
 
     public Contato findByTipo(String tipo);
 
+    public List<Contato> findByCliente_Id(int idCliente);
+
 }

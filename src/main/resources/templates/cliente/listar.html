@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Listar clientes</title>
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="stylesheet" href="/listar.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/listar.css" />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -27,6 +27,7 @@
             <th>Id</th>
             <th>Nome</th>
             <th>CPF</th>
+            <th>Contato</th>
             <th>Ações</th>
         </tr>
         </thead>
@@ -35,9 +36,11 @@
                 <td th:text="${cliente.id}"></td>
                 <td th:text="${cliente.nome}"></td>
                 <td th:text="${cliente.cpf}"></td>
+                <td th:text="${cliente.descricaoContato}"></td>
                 <td>
                     <a th:href="@{/cliente/editar/{id}(id=${cliente.id})}" class="btn btnEdit">Editar</a>
                     <a th:href="@{/cliente/excluir/{id}(id=${cliente.id})}" class="btn btnDelete">Excluir</a>
+                    <a th:href="@{/contato/listar/{id}(id=${cliente.id})}" class="link">Ver Contatos</a>
                 </td>
             </tr>
         </tbody>

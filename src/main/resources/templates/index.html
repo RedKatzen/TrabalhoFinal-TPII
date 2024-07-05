@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Página Inicial</title>
-    <link rel="stylesheet" href="/telaInicial.css" />
-    <link rel="stylesheet" href="/header.css" />
-    <link rel="stylesheet" href="/global.css">
+    <base href="/">
+    <link rel="stylesheet" href="/css/telaInicial.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/global.css">
 </head>
 <body>
 <header>
@@ -23,7 +24,6 @@
         <div class="submenu" id="administrativo">
             <a href="funcionario/listar">Funcionários</a>
             <a href="contato/listar">Contatos</a>
-            <a href="#">Link 3</a>
         </div>
     </div>
     <form th:action="@{/logout}" method="post">

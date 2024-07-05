@@ -1,35 +1,33 @@
 <!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org" lang="en">
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Lista de Contatos</title>
+    <title>Contatos de cliente</title>
     <link rel="stylesheet" href="/css/global.css" />
     <link rel="stylesheet" href="/css/listar.css" />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
-
 <header>
     <form th:action="@{/logout}" method="post">
         <input type="submit" value="Sair da conta" class="btnSair"/>
     </form>
 </header>
+
 <main class="container">
-    <h1>Contatos</h1>
+    <h1>Contatos de <span th:text="${cliente.nome}"></span></h1>
 
     <div class="container-link">
-        <p><a href="/" class="link">Voltar a tela inicial</a></p>
+        <p><a href="/cliente/listar" class="link">Voltar a tela aos clientes</a></p>
     </div>
 
-    <table border="1">
+    <table>
         <thead>
             <tr>
                 <th>Id</th>
                 <th>Tipo</th>
                 <th>Descrição</th>
-                <th>Cliente</th>
-                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -37,18 +35,8 @@
                 <td th:text="${contato.id}"></td>
                 <td th:text="${contato.tipo}"></td>
                 <td th:text="${contato.descricao}"></td>
-                <td th:text="${contato.nomeCliente()}"></td>
-                <td>
-                    <a th:href="@{/contato/editar/{id}(id=${contato.id})}" class="btn btnEdit">Editar</a>
-                    <a th:href="@{/contato/excluir/{id}(id=${contato.id})}" class="btn btnDelete">Excluir</a>
-                </td>
-            </tr>
         </tbody>
     </table>
-
-    <div class="container-link">
-        <p><a href="/contato/novo" class="link">+ Novo contato</a></p>
-    </div>
 </main>
 
 </body>

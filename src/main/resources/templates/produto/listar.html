@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <title>Lista de produtos</title>
-    <link rel="stylesheet" href="/global.css" />
-    <link rel="stylesheet" href="/listar.css" />
+    <link rel="stylesheet" href="/css/global.css" />
+    <link rel="stylesheet" href="/css/listar.css" />
     <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;700&family=Bahnschrift:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -40,8 +40,8 @@
                 <td th:text="${produto.preco}"></td>
                 <td th:text="${produto.quantidade}"></td>
                 <td th:text="${produto.codBarras}"></td>
-                <td th:text="${produto.idMarca}"></td>
-                <td th:text="${produto.idGrupo}"></td>
+                <td th:text="${produto.nomeMarca}"></td>
+                <td th:text="${produto.nomeGrupo}"></td>
                 <td>
                     <a th:href="@{/produto/editar/{id}(id=${produto.id})}" class="btn btnEdit">Editar</a>
                     <a th:href="@{/produto/excluir/{id}(id=${produto.id})}" class="btn btnDelete">Excluir</a>

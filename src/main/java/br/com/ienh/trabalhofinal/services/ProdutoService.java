@@ -26,7 +26,7 @@ public class ProdutoService {
     public List<ProdutoDTO> listar(){
         List<ProdutoDTO> produtos = new ArrayList<>();
         produtoRepository.findAll().forEach(produto -> {
-            ProdutoDTO produtoDTO = new ProdutoDTO(produto.getId(), produto.getDescricao(), produto.getPreco(), produto.getQuantidade(), produto.getCodBarras(), produto.getGrupo().getId(), produto.getMarca().getId());
+            ProdutoDTO produtoDTO = new ProdutoDTO(produto.getId(), produto.getDescricao(), produto.getPreco(), produto.getQuantidade(), produto.getCodBarras(), produto.getGrupo().getId(), produto.getGrupo().getNome(), produto.getMarca().getId(), produto.getMarca().getNome());
             produtos.add(produtoDTO);
         });
         return produtos;
@@ -62,14 +62,14 @@ public class ProdutoService {
     public ProdutoDTO obterProdutoPorId(int id){
         ProdutoDTO produtoDTO = null;
         Produto produto = produtoRepository.findById(id).get();
-        produtoDTO = new ProdutoDTO(produto.getId(), produto.getDescricao(), produto.getPreco(), produto.getQuantidade(), produto.getCodBarras(), produto.getGrupo().getId(), produto.getMarca().getId());
+        produtoDTO = new ProdutoDTO(produto.getId(), produto.getDescricao(), produto.getPreco(), produto.getQuantidade(), produto.getCodBarras(), produto.getGrupo().getId(), produto.getGrupo().getNome(), produto.getMarca().getId(), produto.getMarca().getNome());
         return produtoDTO;
     }
 
     public ProdutoDTO obterProdutoPorCodBarras(double preco){
         ProdutoDTO produtoDTO = null;
         Produto produto = produtoRepository.findByPreco(preco);
-        produtoDTO = new ProdutoDTO(produto.getId(), produto.getDescricao(), produto.getPreco(), produto.getQuantidade(), produto.getCodBarras(), produto.getGrupo().getId(), produto.getMarca().getId());
+        produtoDTO = new ProdutoDTO(produto.getId(), produto.getDescricao(), produto.getPreco(), produto.getQuantidade(), produto.getCodBarras(), produto.getGrupo().getId(), produto.getGrupo().getNome(), produto.getMarca().getId(), produto.getMarca().getNome());
         return produtoDTO;
     }
 

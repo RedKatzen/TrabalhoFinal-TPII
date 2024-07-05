@@ -39,6 +39,7 @@ header {
 .submenu.abrir-menu{
     max-height: 400px;
     overflow: visible;
+    transition: max-height 0.5s;
 }
 .submenu a {
     display: block;

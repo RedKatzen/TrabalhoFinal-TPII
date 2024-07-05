@@ -2,6 +2,7 @@ package br.com.ienh.trabalhofinal.services;
 
 import br.com.ienh.trabalhofinal.dto.ClienteDTO;
 import br.com.ienh.trabalhofinal.entities.Cliente;
+import br.com.ienh.trabalhofinal.entities.Contato;
 import br.com.ienh.trabalhofinal.repositories.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -18,7 +19,7 @@ public class ClienteService {
     public List<ClienteDTO> listar(){
         List<ClienteDTO> clientes = new ArrayList<>();
         clienteRepository.findAll().forEach(cliente -> {
-            ClienteDTO clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf());
+            ClienteDTO clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf(), cliente.getContatos().get(0).getDescricao());
             clientes.add(clienteDTO);
         });
         return clientes;
@@ -42,21 +43,21 @@ public class ClienteService {
     public ClienteDTO obterClientePorId(int id){
         ClienteDTO clienteDTO = null;
         Cliente cliente = clienteRepository.findById(id).get();
-        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf());
+        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf(), cliente.getContatos().get(0).getDescricao());
         return clienteDTO;
     }
 
     public ClienteDTO obterClientePorCpf(String cpf){
         ClienteDTO clienteDTO = null;
         Cliente cliente = clienteRepository.findByCpf(cpf);
-        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf());
+        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf(), cliente.getContatos().get(0).getDescricao());
         return clienteDTO;
     }
 
     public ClienteDTO obterClientePorNome(String nome){
         ClienteDTO clienteDTO = null;
         Cliente cliente = clienteRepository.findByNome(nome);
-        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf());
+        clienteDTO = new ClienteDTO(cliente.getId(), cliente.getNome(), cliente.getCpf(), cliente.getContatos().get(0).getDescricao());
         return clienteDTO;
     }
 

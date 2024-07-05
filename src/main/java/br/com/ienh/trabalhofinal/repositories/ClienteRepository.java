@@ -8,5 +8,4 @@ public interface ClienteRepository  extends CrudRepository<Cliente, Integer> {
     public Cliente findByCpf(String cpf);
 
     public Cliente findByNome(String nome);
-
 }

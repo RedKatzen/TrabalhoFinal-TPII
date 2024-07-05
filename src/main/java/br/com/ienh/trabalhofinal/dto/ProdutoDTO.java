@@ -17,6 +17,10 @@ public record ProdutoDTO(
 
         Integer idGrupo,
 
-        Integer idMarca
+        String nomeGrupo,
+
+        Integer idMarca,
+
+        String nomeMarca
 ) {
 }

@@ -10,5 +10,7 @@ public record ClienteDTO (
         String nome,
 
         @NotNull(message = "Informação obrigatória.")
-        String cpf
+        String cpf,
+
+        String descricaoContato
 ){}
